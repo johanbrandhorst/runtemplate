@@ -5,7 +5,7 @@
 // Generated from {{.TemplateFile}} with Type={{.Type.Name}}
 // options: Numeric:{{.Numeric}} Stringer:{{.Stringer}} Mutable:always
 // by runtemplate {{.AppVersion}}
-// See https://github.com/johanbrandhorst/runtemplate/blob/master/BUILTIN.md
+// See https://github.com/johanbrandhorst/runtemplate/blob/master/v3/BUILTIN.md
 
 package {{.Package}}
 
@@ -115,9 +115,9 @@ func Convert{{.Prefix.U}}{{.Type.U}}Set(values ...interface{}) ({{.Prefix.U}}{{.
 			k := {{.Type.Name}}(*j)
 			set[k] = struct{}{}
 {{- else}}
-        case {{.Type.Name}}:
+		case {{.Type.Name}}:
 			set[j] = struct{}{}
-        case *{{.Type.Name}}:
+		case *{{.Type.Name}}:
 			set[*j] = struct{}{}
 {{- end}}
 		}
@@ -445,7 +445,7 @@ func (set {{.Prefix.U}}{{.Type.U}}Set) Map(f func({{.Type}}) {{.Type}}) {{.Prefi
 	result := New{{.Prefix.U}}{{.Type.U}}Set()
 
 	for v := range set {
-	    k := f({{.Type.Amp}}v)
+		k := f({{.Type.Amp}}v)
 		result[{{.Type.Star}}k] = struct{}{}
 	}
 
@@ -519,7 +519,7 @@ func (set {{.Prefix.U}}{{.Type.U}}Set) CountBy(p func({{.Type}}) bool) (result i
 			result++
 		}
 	}
-	return
+	return result
 }
 {{- if .Ordered}}
 

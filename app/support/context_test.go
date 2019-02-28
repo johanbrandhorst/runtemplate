@@ -16,7 +16,7 @@ func expectPresent(g *GomegaWithT, ctx map[string]interface{}, key string) {
 func TestCreateContextCore(t *testing.T) {
 	g := NewGomegaWithT(t)
 
-	m := FileMeta{"/a/b/c", "foo", time.Time{}, false}
+	m := FileMeta{"/a/b/c", "foo", time.Time{}, ""}
 	types := Tuples([]Tuple{})
 	others := Pairs([]Pair{})
 	ctx := CreateContext(m, "output.txt", types, others, "(app version)")
@@ -40,7 +40,7 @@ func TestCreateContextCore(t *testing.T) {
 func TestCreateContext(t *testing.T) {
 	g := NewGomegaWithT(t)
 
-	m := FileMeta{"/a/b/c", "foo", time.Time{}, false}
+	m := FileMeta{"/a/b/c", "foo", time.Time{}, ""}
 	b := NewTuple("B=*FooBar")
 	c := NewTuple("C=vv3")
 	types := Tuples([]Tuple{b, c})
@@ -86,7 +86,7 @@ func TestCreateContext(t *testing.T) {
 func TestCreateContextWithDottedType(t *testing.T) {
 	g := NewGomegaWithT(t)
 
-	m := FileMeta{"/a/b/c", "foo", time.Time{}, false}
+	m := FileMeta{"/a/b/c", "foo", time.Time{}, ""}
 	bigInt := NewTuple("Type=*big.Int")
 	types := Tuples([]Tuple{bigInt})
 	others := Pairs([]Pair{})
@@ -123,7 +123,7 @@ func TestCreateContextWithDottedType(t *testing.T) {
 func TestCreateContextWithPrefix(t *testing.T) {
 	g := NewGomegaWithT(t)
 
-	m := FileMeta{"/a/b/c", "foo", time.Time{}, false}
+	m := FileMeta{"/a/b/c", "foo", time.Time{}, ""}
 	types := Tuples([]Tuple{NewTuple("OneType=Apple"), NewTuple("TwoType=Pear/Pear/nil"), NewTuple("OnePrefix=Foo")})
 	others := Pairs([]Pair{})
 	ctx := CreateContext(m, "output.txt", types, others, "(app version)")

@@ -4,8 +4,8 @@
 // Generated from simple/list.tpl with Type=Apple
 // options: Comparable:true Numeric:<no value> Ordered:<no value> Stringer:false
 // GobEncode:<no value> Mutable:always ToList:always ToSet:<no value>
-// by runtemplate v3.3.2
-// See https://github.com/johanbrandhorst/runtemplate/blob/master/BUILTIN.md
+// by runtemplate v3.3.3
+// See https://github.com/johanbrandhorst/runtemplate/blob/master/v3/BUILTIN.md
 
 package examples
 

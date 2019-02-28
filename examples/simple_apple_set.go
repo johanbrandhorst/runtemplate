@@ -4,8 +4,8 @@
 //
 // Generated from simple/set.tpl with Type=Apple
 // options: Numeric:<no value> Stringer:false Mutable:always
-// by runtemplate v3.3.2
-// See https://github.com/johanbrandhorst/runtemplate/blob/master/BUILTIN.md
+// by runtemplate v3.3.3
+// See https://github.com/johanbrandhorst/runtemplate/blob/master/v3/BUILTIN.md
 
 package examples
 

@@ -7,7 +7,7 @@
 // Generated from {{.TemplateFile}} with Key={{.Key.Name}} Type={{.Type}}
 // options: Comparable:{{.Comparable}} Stringer:{{.Stringer}} KeyList:{{.KeyList}} ValueList:{{.ValueList}} Mutable:disabled
 // by runtemplate {{.AppVersion}}
-// See https://github.com/johanbrandhorst/runtemplate/blob/master/BUILTIN.md
+// See https://github.com/johanbrandhorst/runtemplate/blob/master/v3/BUILTIN.md
 
 package {{.Package}}
 
@@ -153,6 +153,22 @@ func (mm *{{.Prefix.U}}{{.Key.U}}{{.Type.U}}Map) ToSlice() []{{.Prefix.U}}{{.Key
 func (mm *{{.Prefix.U}}{{.Key.U}}{{.Type.U}}Map) Get(k {{.Key}}) ({{.Type}}, bool) {
 	v, found := mm.m[k]
 	return v, found
+}
+
+// Put adds an item to a clone of the map, replacing any prior value and returning the cloned map.
+func (mm *{{.Prefix.U}}{{.Key.U}}{{.Type.U}}Map) Put(k {{.Key}}, v {{.Type}}) *{{.Prefix.U}}{{.Key.U}}{{.Type.U}}Map {
+	if mm == nil {
+		return New{{.Prefix.U}}{{.Key.U}}{{.Type.U}}Map1(k, v)
+	}
+
+	result := New{{.Prefix.U}}{{.Key.U}}{{.Type.U}}Map()
+
+	for k, v := range mm.m {
+		result.m[k] = v
+	}
+	result.m[k] = v
+
+	return result
 }
 
 // ContainsKey determines if a given item is already in the map.
