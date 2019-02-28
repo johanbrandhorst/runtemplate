@@ -5,7 +5,7 @@
 // Generated from {{.TemplateFile}} with Type={{.Type.Name}}
 // options: Numeric:{{.Numeric}} Stringer:{{.Stringer}} Mutable:always
 // by runtemplate {{.AppVersion}}
-// See https://github.com/johanbrandhorst/runtemplate/blob/master/v3/BUILTIN.md
+// See https://github.com/johanbrandhorst/runtemplate/blob/master/BUILTIN.md
 
 package {{.Package}}
 
