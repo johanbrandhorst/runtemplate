@@ -1,35 +1,25 @@
 #!/bin/bash -e
 cd $(dirname $0)
-D=$PWD
 
 PATH=$HOME/go/bin:$PATH
-export GOPATH=$HOME/go
-export GO111MODULE=off
+unset GOPATH
+export GO111MODULE=on
 
-mkdir -p $GOPATH
+go mod download
 
-if [ ! -d $GOPATH/src/github.com/johanbrandhorst/runtemplate ]; then
-  cd $GOPATH
-  mkdir -p src/github.com/johanbrandhorst
-  cd       src/github.com/johanbrandhorst
-  ln -vs $D .
-  cd $D
-fi
-
-go get -x github.com/go-playground/statics/static
-go get -x github.com/benmoss/matchers
-go get -x golang.org/x/net/html/charset
+rm -f builtin/*.txt
 
 ./builtintest/clean
 
 ./copy-threadsafe-builtins
 
-./get-statics-tool
+# we need the 'packr' tool
+if [ -z "$(type -p packr)" ]; then
+  mkdir -pv $HOME/go/src
+  go get github.com/gobuffalo/packr/packr
+fi
 
 go generate .
-
-echo -e "// git: \"$(git describe --tags 2>/dev/null)\"" >> app/statics.go
-fgrep const version.go >> app/statics.go
 
 echo
 echo App Testing...
@@ -37,13 +27,11 @@ go test ./app/...
 
 echo
 echo Installing...
-cd $GOPATH
-go install github.com/johanbrandhorst/runtemplate
-cd $D
+go install .
 
 type runtemplate
 
-builtin/info ||:
+./info ||:
 
 echo
 echo Generating tests...
@@ -52,16 +40,19 @@ go generate -v ./builtintest/...
 rm -f examples/*_*.go
 go generate ./examples
 
-gofmt -l -w examples/*.go
+echo
+echo Go Fmt...
+gofmt -l -w *.go app/*.go examples/*.go
 
 echo
 echo Template Testing...
+go clean -testcache
 RACE=
 [ "$CGO_ENABLED" != "1" ] || RACE=-race
-go test $RACE ./app/... ./builtintest/...
+go test $RACE ./...
 
 echo
 echo Code vetting...
-go vet . ./app/... ./builtintest/... ./examples/...
+go vet ./...
 
 echo ok.

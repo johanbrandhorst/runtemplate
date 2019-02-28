@@ -4,8 +4,8 @@
 //
 // Generated from immutable/map.tpl with Key=int Type=int
 // options: Comparable:true Stringer:true KeyList:<no value> ValueList:<no value> Mutable:disabled
-// by runtemplate v3.3.2
-// See https://github.com/johanbrandhorst/runtemplate/blob/master/BUILTIN.md
+// by runtemplate v3.3.3
+// See https://github.com/johanbrandhorst/runtemplate/blob/master/v3/BUILTIN.md
 
 package examples
 
@@ -140,6 +140,22 @@ func (mm *ImmutableIntIntMap) ToSlice() []ImmutableIntIntTuple {
 func (mm *ImmutableIntIntMap) Get(k int) (int, bool) {
 	v, found := mm.m[k]
 	return v, found
+}
+
+// Put adds an item to a clone of the map, replacing any prior value and returning the cloned map.
+func (mm *ImmutableIntIntMap) Put(k int, v int) *ImmutableIntIntMap {
+	if mm == nil {
+		return NewImmutableIntIntMap1(k, v)
+	}
+
+	result := NewImmutableIntIntMap()
+
+	for k, v := range mm.m {
+		result.m[k] = v
+	}
+	result.m[k] = v
+
+	return result
 }
 
 // ContainsKey determines if a given item is already in the map.

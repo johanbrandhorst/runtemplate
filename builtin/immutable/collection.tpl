@@ -1,7 +1,7 @@
 // Generated from {{.TemplateFile}} with Type={{.Type.Name}}
 // options: Comparable:{{.Comparable}} Numeric:{{.Numeric}} Ordered:{{.Ordered}} Stringer:{{.Stringer}} Mutable:disabled
 // by runtemplate {{.AppVersion}}
-// See https://github.com/johanbrandhorst/runtemplate/blob/master/BUILTIN.md
+// See https://github.com/johanbrandhorst/runtemplate/blob/master/v3/BUILTIN.md
 
 package {{.Package}}
 
@@ -58,13 +58,13 @@ type {{.Prefix.U}}{{.Type.U}}Collection interface {
 	IsSet() bool
 {{- if .ToList}}
 
-    // ToList returns a shallow copy as a list.
-    ToList() *{{.Prefix.U}}{{.Type.U}}List
+	// ToList returns a shallow copy as a list.
+	ToList() *{{.Prefix.U}}{{.Type.U}}List
 {{- end}}
 {{- if .ToSet}}
 
-    // ToSet returns a shallow copy as a set.
-    ToSet() *{{.Prefix.U}}{{.Type.U}}Set
+	// ToSet returns a shallow copy as a set.
+	ToSet() *{{.Prefix.U}}{{.Type.U}}Set
 {{- end}}
 
 	// ToSlice returns a shallow copy as a plain slice.

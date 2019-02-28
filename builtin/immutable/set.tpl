@@ -7,7 +7,7 @@
 // Generated from {{.TemplateFile}} with Type={{.Type.Name}}
 // options: Comparable:always Numeric:{{.Numeric}} Ordered:{{.Ordered}} Stringer:{{.Stringer}} Mutable:disabled
 // by runtemplate {{.AppVersion}}
-// See https://github.com/johanbrandhorst/runtemplate/blob/master/BUILTIN.md
+// See https://github.com/johanbrandhorst/runtemplate/blob/master/v3/BUILTIN.md
 
 package {{.Package}}
 
@@ -127,9 +127,9 @@ func Convert{{.Prefix.U}}{{.Type.U}}Set(values ...interface{}) (*{{.Prefix.U}}{{
 			k := {{.Type.Name}}(*j)
 			set.m[k] = struct{}{}
 {{- else}}
-        case {{.Type.Name}}:
+		case {{.Type.Name}}:
 			set.m[j] = struct{}{}
-        case *{{.Type.Name}}:
+		case *{{.Type.Name}}:
 			set.m[*j] = struct{}{}
 {{- end}}
 		}

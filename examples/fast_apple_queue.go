@@ -11,13 +11,12 @@
 // Generated from fast/queue.tpl with Type=Apple
 // options: Comparable:<no value> Numeric:<no value> Ordered:<no value> Sorted:<no value> Stringer:<no value>
 // ToList:<no value> ToSet:<no value>
-// by runtemplate v3.3.2
-// See https://github.com/johanbrandhorst/runtemplate/blob/master/BUILTIN.md
+// by runtemplate v3.3.3
+// See https://github.com/johanbrandhorst/runtemplate/blob/master/v3/BUILTIN.md
 
 package examples
 
 import (
-	//
 	"sort"
 )
 

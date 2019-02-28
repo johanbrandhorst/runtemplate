@@ -9,24 +9,24 @@ type FileMeta struct {
 	Path     string
 	Name     string
 	ModTime  time.Time
-	Embedded bool
+	Embedded string
 }
 
-func EmbeddedFileMeta(path, name string, modTime time.Time) FileMeta {
-	return FileMeta{path, name, modTime, true}
+func EmbeddedFileMeta(path, name string, content string) FileMeta {
+	return FileMeta{path, name, time.Time{}, content}
 }
 
 func SingleFileMeta(path, name string) FileMeta {
 	Debug("stat %q\n", path)
 	if path == "" {
-		return FileMeta{path, "", time.Time{}, false}
+		return FileMeta{path, "", time.Time{}, ""}
 	}
 
 	info, err := fs.Stat(path)
 	if err != nil {
 		if os.IsNotExist(err) {
 			Debug("%q does not exist.\n", path)
-			return FileMeta{path, "", time.Time{}, false}
+			return FileMeta{path, "", time.Time{}, ""}
 		} else {
 			Fail(err)
 		}
@@ -35,7 +35,7 @@ func SingleFileMeta(path, name string) FileMeta {
 	if name == "" || name[0] == '/' {
 		name = info.Name()
 	}
-	return FileMeta{path, name, info.ModTime(), false}
+	return FileMeta{path, name, info.ModTime(), ""}
 }
 
 func NewFileMeta(includeEmpties bool, paths ...string) []FileMeta {

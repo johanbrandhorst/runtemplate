@@ -5,7 +5,7 @@
 // Generated from {{.TemplateFile}} with Key={{.Key}} Type={{.Type}}
 // options: Comparable:{{.Comparable}} Stringer:{{.Stringer}} KeyList:{{.KeyList}} ValueList:{{.ValueList}} Mutable:always
 // by runtemplate {{.AppVersion}}
-// See https://github.com/johanbrandhorst/runtemplate/blob/master/BUILTIN.md
+// See https://github.com/johanbrandhorst/runtemplate/blob/master/v3/BUILTIN.md
 
 package {{.Package}}
 
@@ -275,7 +275,7 @@ func (mm {{.Prefix.U}}{{.Key.U}}{{.Type.U}}Map) Partition(p func({{.Key}}, {{.Ty
 			others[k] = v
 		}
 	}
-	return
+	return matching, others
 }
 
 // Map returns a new {{.Prefix.U}}{{.Type.U}}Map by transforming every element with the function f.
