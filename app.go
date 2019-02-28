@@ -9,8 +9,8 @@ import (
 	"flag"
 	"fmt"
 	"github.com/gobuffalo/packr"
-	"github.com/johanbrandhorst/runtemplate/v3/app"
-	"github.com/johanbrandhorst/runtemplate/v3/app/support"
+	"github.com/johanbrandhorst/runtemplate/app"
+	"github.com/johanbrandhorst/runtemplate/app/support"
 	"os"
 	"strings"
 )

@@ -1,6 +1,6 @@
 # runtemplate
 
-[![GoDoc](https://img.shields.io/badge/api-Godoc-blue.svg?style=flat-square)](https://godoc.org/github.com/johanbrandhorst/runtemplate/v3/examples)
+[![GoDoc](https://img.shields.io/badge/api-Godoc-blue.svg?style=flat-square)](https://godoc.org/github.com/johanbrandhorst/runtemplate/examples)
 [![Build Status](https://travis-ci.org/johanbrandhorst/runtemplate.svg?branch=master)](https://travis-ci.org/johanbrandhorst/runtemplate)
 [![Code Coverage](https://img.shields.io/coveralls/johanbrandhorst/runtemplate.svg)](https://coveralls.io/r/johanbrandhorst/runtemplate)
 [![Issues](https://img.shields.io/github/issues/johanbrandhorst/runtemplate.svg)](https://github.com/johanbrandhorst/runtemplate/issues)

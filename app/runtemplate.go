@@ -8,7 +8,7 @@ package app
 
 import (
 	"github.com/gobuffalo/packr"
-	. "github.com/johanbrandhorst/runtemplate/v3/app/support"
+	. "github.com/johanbrandhorst/runtemplate/app/support"
 	"io"
 	"io/ioutil"
 	"os"
