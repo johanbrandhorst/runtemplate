@@ -1057,7 +1057,7 @@ func (list *{{.Prefix.U}}{{.Type.U}}List) Equals(other *{{.Prefix.U}}{{.Type.U}}
 
 type sortable{{.Prefix.U}}{{.Type.U}}List struct {
 	less func(i, j {{.Type}}) bool
-	m []{{.Type}}
+	m    []{{.Type}}
 }
 
 func (sl sortable{{.Prefix.U}}{{.Type.U}}List) Less(i, j int) bool {
