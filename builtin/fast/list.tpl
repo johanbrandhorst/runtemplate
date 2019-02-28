@@ -918,7 +918,7 @@ func (list *{{.Prefix.U}}{{.Type.U}}List) CountBy(p func({{.Type}}) bool) (resul
 			result++
 		}
 	}
-	return
+	return result
 }
 
 // MinBy returns an element of {{.Prefix.U}}{{.Type.U}}List containing the minimum value, when compared to other elements
